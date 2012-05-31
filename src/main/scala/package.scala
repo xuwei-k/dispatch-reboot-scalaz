@@ -16,11 +16,11 @@ package dispatch_scalaz{
 
     implicit val PromiseApply:Apply[Promise] = Scalaz.FunctorBindApply[Promise]
 
-    implicit def PromiseBind: Bind[Promise] = new Bind[Promise] {
+    implicit val PromiseBind: Bind[Promise] = new Bind[Promise] {
       def bind[A, B](r: Promise[A], f: A => Promise[B]) = r flatMap f
     }
 
-    implicit def PromiseEach: Each[Promise] = new Each[Promise] {
+    implicit val PromiseEach: Each[Promise] = new Each[Promise] {
       def each[A](e: Promise[A], f: A => Unit) = f(e.apply)
     }
 
