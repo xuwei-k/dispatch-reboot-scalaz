@@ -39,5 +39,10 @@ package dispatch_scalaz{
     implicit val PromiseCopure:Copure[Promise] = new Copure[Promise] {
       def copure[A](a: Promise[A]) = a.apply
     }
+
+    object Applicative{
+      implicit val PromiseApplicative:Applicative[Promise] =
+        scalaz.Applicative.applicative[Promise](PromisePure,PromiseApply)
+    }
   }
 }
