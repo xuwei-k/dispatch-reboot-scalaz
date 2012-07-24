@@ -8,12 +8,12 @@ object build extends Build{
     "dispatch-reboot-scalaz",
     file(".")
   )settings(
-    scalaVersion := "2.9.1",
+    scalaVersion := "2.9.2",
     resolvers ++= Seq(
       "https://oss.sonatype.org/content/repositories/releases"
     ).map{u => u at u},
     libraryDependencies ++= Seq(
-      "net.databinder.dispatch" %% "core" % "0.9.0-beta2",
+      "net.databinder.dispatch" %% "dispatch-core" % "0.9.4",
       "org.scalaz" %% "scalaz-core" % scalazV,
       "org.scalaz" %% "scalaz-scalacheck-binding" % scalazV % "test",
       "org.scala-tools.testing" % "specs_2.9.0-1" % "1.6.8" % "test"
